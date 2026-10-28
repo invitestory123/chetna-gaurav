@@ -123,7 +123,12 @@ window.WEDDING_DATA = {
   },
   "details": {
     "dressCode": "Curated for each event — please see our celebration itinerary above for specific palettes and styles.",
-    "giftPreference": ""
+    "giftPreference": "",
+    "blessing": {
+      "message": "Your presence\nwill make our\ncelebration complete.",
+      "regards": "With Love & Regards,",
+      "family": "AGARWAL FAMILY"
+    }
   },
   // Add the host's email address to enable the RSVP button.
   "rsvp": {

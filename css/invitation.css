@@ -139,3 +139,10 @@ body{font-size:20px;line-height:1.65}.names{font-size:clamp(64px,15vw,88px);line
 .day-dress .dress-desc{font-size:14px;line-height:1.5;font-style:italic;margin:0;color:var(--ink)}
 @media(max-width:360px){.itinerary-day{padding-left:16px;padding-right:16px}.day-title{font-size:28px}.subevent-title{font-size:19px}}
 
+/* Family blessing note */
+.family-blessing{margin-top:28px;text-align:center}
+.family-blessing .blessing-message{font-size:19px;line-height:1.55;color:var(--ink);max-width:280px;margin:0 auto;letter-spacing:.02em}
+.blessing-ornament{width:48px;height:1px;background:var(--metal);margin:18px auto 16px;position:relative}
+.blessing-ornament:after{content:'❦';position:absolute;top:-10px;left:50%;transform:translateX(-50%);font-size:11px;color:var(--metal);background:var(--paper);padding:0 6px}
+.family-blessing .blessing-regards{font:400 clamp(30px,7.5vw,38px)/1.25 Parisienne,cursive;color:var(--accent);margin:0 0 8px}
+.family-blessing .blessing-family{font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(20px,5vw,25px);font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin:0}
