@@ -65,7 +65,7 @@
       `).join('')}
     </div>
   ` : `<ol class="timeline">${(data.schedule || []).map(event=>`<li class="reveal"><time>${text(event.time)}</time><span class="event-marker" aria-hidden="true"></span><span class="event-name">${text(event.title)}</span></li>`).join('')}</ol>`;
-  document.title = `${data.couple.first} & ${data.couple.second} | Dearly wedding invitation`;
+  document.title = `${data.couple.first} & ${data.couple.second} | ${data.wedding.occasion || 'The Parojan'}`;
   document.querySelector('#app').innerHTML = `
     <div class="entrance" id="entrance">
       <img class="envelope" src="${data.media.openingPoster ? text(safeURL(data.media.openingPoster)) : asset('envelope-first.webp')}" alt="${text(theme.name)} floral embossed envelope with a wax seal" fetchpriority="high">
@@ -78,41 +78,24 @@
       <section class="hero" aria-label="Wedding invitation">
         <img class="hero-art" src="${data.media.heroPoster ? text(safeURL(data.media.heroPoster)) : asset('hero-first.webp')}" alt="${text(theme.scene)}" decoding="async">
         <video class="hero-video" id="hero-video" muted loop playsinline preload="none" hidden></video>
-        <div class="hero-copy"><p class="occasion">The wedding of</p><p class="date">${text(data.wedding.dateLabel)}</p>
+        <div class="hero-copy"><p class="occasion">${text(data.wedding.occasion || 'The Parojan of')}</p><p class="date">${text(data.wedding.dateLabel)}</p>
           <h1 class="names" id="names" tabindex="-1"><span>${text(data.couple.first)}</span><i>&amp;</i><span>${text(data.couple.second)}</span></h1>
-          <p class="hero-note">${text(data.couple.heroNote)}</p><a class="hero-link" href="#our-invitation">With love, you are invited</a>
+          ${data.couple.heroNote ? `<p class="hero-note">${text(data.couple.heroNote)}</p>` : ''}<a class="hero-link" href="#countdown-title">${text(data.couple.heroLinkText || 'You are invited')}</a>
         </div>
       </section>
-      <section class="paper-section floral intro" id="our-invitation" aria-label="Our invitation">
-        <h2 class="script reveal">${text(data.couple.subtitle)}</h2><div class="rule" aria-hidden="true"></div>
-        <p class="reveal">${text(data.wedding.salutation)}</p><p class="invitation-note reveal">${text(data.wedding.invitationNote)}</p>
-      </section>
-      <section class="paper-section countdown-section torn" aria-labelledby="countdown-title"><h2 class="script" id="countdown-title">Until we say “I do”</h2>
+      <section class="paper-section countdown-section torn" aria-labelledby="countdown-title"><h2 class="script" id="countdown-title">${text(data.wedding.countdownTitle || 'Until we meet')}</h2>
         <div class="countdown" id="countdown" role="timer" aria-label="Time until the wedding"><div><strong data-count="days">00</strong><span>Days</span></div><div><strong data-count="hours">00</strong><span>Hours</span></div><div><strong data-count="minutes">00</strong><span>Minutes</span></div><div><strong data-count="seconds">00</strong><span>Seconds</span></div></div><p class="countdown-note" id="countdown-note">${text(data.wedding.longDate)}</p>
       </section>
       <section class="paper-section floral schedule-section" aria-labelledby="schedule-title"><h2 class="script reveal" id="schedule-title">Celebration Itinerary</h2><p class="schedule-intro reveal">8th – 11th December 2026 · Anantara Kalutara, Sri Lanka</p>${scheduleHTML}<p class="schedule-note">${text(data.wedding.scheduleNote)}</p></section>
       <section class="paper-section venue-section torn" aria-labelledby="venue-title"><h2 class="script reveal" id="venue-title">Where we celebrate</h2><img class="venue-scene reveal" src="${asset('hero-first.webp')}" alt="" loading="lazy"><p class="venue-caption">${text(data.venue.sceneCaption)}</p><div class="location-frame reveal"><h3 class="venue-name">${text(data.venue.name)}</h3><div class="rule" aria-hidden="true"></div><address class="venue-address">${text(data.venue.address)}</address><p>${text(data.venue.timeLabel)}</p><div class="actions"><a class="action" id="maps" target="_blank" rel="noopener noreferrer">Open in maps</a><button class="action secondary" id="calendar">Add to calendar</button></div></div><p class="travel-note">${text(data.venue.note)}</p></section>
-      <section class="paper-section floral etiquette" aria-label="Guest details"><article class="reveal"><h2 class="script">Dress code</h2><p>${text(data.details.dressCode)}</p></article><div class="rule" aria-hidden="true"></div><article class="reveal"><h2 class="script">Your presence, our present</h2><p>${text(data.details.giftPreference)}</p></article></section>
-      <section class="paper-section floral rsvp-section" aria-labelledby="rsvp-title">
-        <div class="rsvp-card reveal"><span class="rsvp-kicker">Kindly reply</span>
-          <svg class="rsvp-envelope" viewBox="0 0 48 36" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><rect x="2" y="3" width="44" height="30" rx="2"/><path d="m3 5 21 16L45 5M3 32l14-14m28 14L31 18"/></svg>
-          <h2 class="script" id="rsvp-title">${text(data.rsvp?.heading || 'A place for you')}</h2>
-          <p>${text(data.rsvp?.note || 'We would love to celebrate with you. Kindly let us know if you can join us.')}</p>
-          ${data.rsvp?.deadline ? `<p class="rsvp-deadline">Kindly reply by ${text(data.rsvp.deadline)}</p>` : ''}
-          <form class="rsvp-form" id="rsvp-form"></form>
-        </div>
-      </section>
-      <footer class="closing" aria-labelledby="closing-title">
+      <section class="paper-section floral etiquette" aria-label="Guest details"><article class="reveal"><h2 class="script">Dress code</h2><p>${text(data.details.dressCode)}</p></article>${data.details.giftPreference ? `<div class="rule" aria-hidden="true"></div><article class="reveal"><h2 class="script">Your presence, our present</h2><p>${text(data.details.giftPreference)}</p></article>` : ''}</section>
+      <footer class="closing" aria-label="Closing">
         <div class="closing-scene">
           <img class="closing-art" src="${data.media.heroPoster ? text(safeURL(data.media.heroPoster)) : asset('hero-first.webp')}" alt="" width="720" height="1280" loading="lazy" decoding="async">
           <div class="closing-copy reveal">
-            <p class="closing-eyebrow">The beginning of our forever</p>
-            <h2 class="closing-title" id="closing-title">With all<br><em>our love</em></h2>
-            <div class="closing-rule" aria-hidden="true"></div>
             <p class="closing-names"><span>${text(data.couple.first)}</span><i>&amp;</i><span>${text(data.couple.second)}</span></p>
             <p class="closing-date">${text(data.wedding.dateLabel)}</p>
             <p class="closing-note">The day will be beautiful.<br>Even more so with you.</p>
-            <a class="closing-rsvp" href="#rsvp-title">Join our celebration <span aria-hidden="true">↗</span></a>
           </div>
           <p class="closing-caption">A little moment. A lifetime of love.</p>
         </div>
@@ -154,7 +137,7 @@
   $('maps').hidden = !mapsURL && !data.venue.address.trim();
   $('maps').href=mapsURL || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(data.venue.name+' '+data.venue.address)}`;
 
-  window.initWeddingRSVP($('rsvp-form'), data.rsvp || {}, `${data.couple.first} & ${data.couple.second}`);
+  if ($('rsvp-form')) window.initWeddingRSVP($('rsvp-form'), data.rsvp || {}, `${data.couple.first} & ${data.couple.second}`);
 
   function beginObservers() {
     if(observersStarted || !('IntersectionObserver' in window)) return;

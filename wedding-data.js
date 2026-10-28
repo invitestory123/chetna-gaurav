@@ -5,10 +5,13 @@ window.WEDDING_DATA = {
   "couple": {
     "first": "Chetna",
     "second": "Gaurav",
-    "heroNote": "Together with our families",
+    "heroNote": "",
+    "heroLinkText": "You are invited",
     "subtitle": "Our favourite chapter begins."
   },
   "wedding": {
+    "occasion": "The Parojan of",
+    "countdownTitle": "Until we meet",
     "dateLabel": "10 · 12 · 2026",
     "longDate": "Thursday, 10 December 2026",
     "dateISO": "2026-12-10T17:30:00+05:30",
@@ -36,7 +39,7 @@ window.WEDDING_DATA = {
           "location": "Anantara Kalutara"
         },
         {
-          "time": "Evening",
+          "time": "8:00 PM Onwards",
           "title": "Welcome Dinner",
           "location": "By the Poolside"
         }
@@ -120,7 +123,7 @@ window.WEDDING_DATA = {
   },
   "details": {
     "dressCode": "Curated for each event — please see our celebration itinerary above for specific palettes and styles.",
-    "giftPreference": "Your presence and blessings are our greatest gift. Kindly, no boxed gifts."
+    "giftPreference": ""
   },
   // Add the host's email address to enable the RSVP button.
   "rsvp": {
