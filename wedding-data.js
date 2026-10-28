@@ -23,7 +23,6 @@ window.WEDDING_DATA = {
       "date": "Tuesday, 8th December 2026",
       "title": "Welcome to Paradise",
       "subtitle": "Begin the celebrations in paradise",
-      "cardImage": "./assets/itinerary/dec8-welcome.png",
       "dressCode": "Begin the celebrations in timeless whites and elegant ivory tones.",
       "events": [
         {
@@ -54,7 +53,6 @@ window.WEDDING_DATA = {
           "title": "Carnival Bloom",
           "subtitle": "Enter the Pastel Paradise",
           "location": "Upper Deck",
-          "cardImage": "./assets/itinerary/dec9-carnival.png",
           "dressCode": "Enter the Pastel Paradise. Think dreamy pastels, playful hues & effortless festive glam."
         },
         {
@@ -62,7 +60,6 @@ window.WEDDING_DATA = {
           "title": "Sit Down Dinner",
           "subtitle": "Let's make it a night to remember!",
           "location": "Ballroom",
-          "cardImage": "./assets/itinerary/dec9-dinner.png",
           "dressCode": "Ladies in glamorous gowns, gentlemen in sharp blazers. Let's make it a night to remember!"
         }
       ]
@@ -78,14 +75,12 @@ window.WEDDING_DATA = {
           "title": "Phoolon ki Holi",
           "subtitle": "Colours of Celebration",
           "location": "Pool Side",
-          "cardImage": "./assets/itinerary/dec10-holi.png",
           "dressCode": "Bring out the brightest colours and celebrate the festival of colours."
         },
         {
           "time": "5:30 PM Onwards",
           "title": "Myra & Parojan Rituals",
           "location": "River Mouth",
-          "cardImage": "./assets/itinerary/dec10-sangeet.png",
           "dressCode": "Dress in your finest Indian ensembles, rich fabrics and royal hues."
         },
         {
