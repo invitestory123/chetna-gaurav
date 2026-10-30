@@ -41,7 +41,7 @@ window.WEDDING_DATA = {
         {
           "time": "8:00 PM Onwards",
           "title": "Welcome Dinner",
-          "location": "By the Poolside"
+          "location": "Lobby Lawns"
         }
       ]
     },
@@ -55,7 +55,7 @@ window.WEDDING_DATA = {
           "time": "1:30 PM Onwards",
           "title": "Carnival Bloom",
           "subtitle": "Enter the Pastel Paradise",
-          "location": "Upper Deck",
+          "location": "Olu pool area",
           "dressCode": "Enter the Pastel Paradise. Think dreamy pastels, playful hues & effortless festive glam."
         },
         {
@@ -77,7 +77,7 @@ window.WEDDING_DATA = {
           "time": "11:30 AM",
           "title": "Phoolon ki Holi",
           "subtitle": "Colours of Celebration",
-          "location": "Pool Side",
+          "location": "ACQUOLINA Pool Side",
           "dressCode": "Bring out the brightest colours and celebrate the festival of colours."
         },
         {
